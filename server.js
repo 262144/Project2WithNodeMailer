@@ -43,7 +43,7 @@ app.post("/sendIt/:email", function(req, res) {
 		from: 'Project2JNJspa@gmail.com',
 		to: req.params.email,
 		subject: 'Sending Email using Node.js',
-		text: 'I guess this is how people hack into other people\'s email.  I am just using my command prompt to send the email.  Really quite interesting.'
+		text: 'You are such a wonderful, awesome customer...Thanks for your appointment! ;)'
 	};
 
 	transporter.sendMail(mailOptions, function(error, info){

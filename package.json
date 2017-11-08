@@ -1,0 +1,28 @@
+{
+  "name": "jnj_spa",
+  "version": "1.0.0",
+  "description": "Jessi Nick and James project",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mysql2": "^1.4.2",
+    "nodemailer": "^4.3.1",
+    "sequelize": "^4.22.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/262144/Project2WithNodeMailer.git"
+  },
+  "author": "Jessi Nick & James",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/262144/Project2WithNodeMailer/issues"
+  },
+  "homepage": "https://github.com/262144/Project2WithNodeMailer#readme"
+}
