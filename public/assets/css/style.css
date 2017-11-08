@@ -1,0 +1,97 @@
+body {
+    font-family: "Lato", sans-serif;
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+.n {
+	color:red;
+	font-size: 50px;
+}
+.home {
+	background-color: black;
+}
+.menu {
+	border: 1px solid white;
+	color: white;
+	padding: .5%;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: white;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.head {
+	text-align: center;
+	background-color: black;
+	color: white;
+}
+
+.contact {
+	width: 80%;
+	margin-left: 10%;
+	background-color: black;
+	color: white !important;
+}
+.serviceList {
+	text-align: left !important;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid white;
+    margin: 1em 0;
+    padding: 0; 
+}
+.appointmentHome {
+	border: 5px solid black;
+	color: white;
+	padding: .5%;
+
+}
+.banner {
+	color: black;
+}
+.button {
+	background-color: white;
+	color: black;
+}
+.appThanks {
+    background-color: white;
+    color: black;
+}
