@@ -19,7 +19,8 @@ module.exports = function(app) {
 		res.sendFile(path.join(__dirname, "../public/make-appt.html"));
 	});
 
-	app.get("/view-schedule", function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/view-schedule.html"));
+	app.get("/about", function(req, res) {
+		res.sendFile(path.join(__dirname, "../public/about.html"));
 	});
+
 }
