@@ -12,7 +12,7 @@ module.exports = function(app) {
 	});
 
 	app.get("/make-appt", function(req, res) {
-		res.sendFile(path.join(__dirname, "../public/login.html"));
+		res.sendFile(path.join(__dirname, "../public/bookAppointment.html"));
 	});
 
 	app.get("/appt/:email", function(req, res) {
