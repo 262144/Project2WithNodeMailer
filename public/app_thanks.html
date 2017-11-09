@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JNJ Day Spa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/make-account">Create an Account</a>
+        <a href="services.html">Services</a>
+        <a href="/make-appt">Appointment</a>
+    </div>
+    <div class="jumbotron jumbotron-fluid head">
+        <img width="200" height="200" style="margin-right: 10%;" src="assets/images/logo.png">
+        <span class="menu" style="text-align:center;float:left;font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+    </div>
+    <div class="jumbotron form-jumbotron">
+        <div class="appThanks">
+            <h3>Thank you for booking an appointment with JNJSpa! You will be receiving a confirmation email shortly.</h3>
+        </div>
+    </div>
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+</body>
+
+</html>

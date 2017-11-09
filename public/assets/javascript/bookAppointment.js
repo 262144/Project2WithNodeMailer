@@ -3,9 +3,8 @@ $(document).ready(function() {
     var appointments = [];
     var employees = [];
     var selectedDate;
-    var email = window.location.search;
-    var email = email.slice(1);
-    console.log('here is the email ' + email);
+    var url = window.location.href;
+    var customerId = url.slice(url.indexOf("?")+1);
     getServices(); // calls api to retrieve appointments and employee list
 
     $("#date").change(function() {
@@ -29,8 +28,8 @@ $(document).ready(function() {
                         service: employee.Role.service
                     });
                     $("#service")
-                    .append('<option value=' + employee.RoleId + '>' +
-                        employee.Role.service + '</option>');
+                        .append('<option value=' + employee.RoleId + '>' +
+                            employee.Role.service + '</option>');
                 }
             });
             $("#serviceSelect").show();
@@ -47,8 +46,8 @@ $(document).ready(function() {
                 var selectedService = $("#service").val();
                 if (selectedService == employee.RoleId) {
                     $("#employee")
-                    .append('<option value=' + employee.id + '>' +
-                        employee.firstName + '</option>');
+                        .append('<option value=' + employee.id + '>' +
+                            employee.firstName + '</option>');
                 }
             });
             $("#employeeSelect").show();
@@ -91,22 +90,21 @@ $(document).ready(function() {
 
     $("#submitButton").click(function(e) {
         e.preventDefault();
-        selectedDate.setTime(selectedDate.getTime() + ($("#time").val()*60*60*1000));
+        selectedDate.setTime(selectedDate.getTime() + ($("#time").val() * 60 * 60 * 1000));
         $.ajax({
-            method: "POST",
-            url: "/api/createappointment",
-            data: {
-                appointmentTime: selectedDate,
-                message: $("#message").val(),
-                CustomerId: "1",
-                EmployeeId: $("#employee").val()
-            }
-        })
-        .done(function(res) {
-            console.log("here is the email in the .done function " + email);
-            sendIt(email);
-            console.log(res);
-        });
+                method: "POST",
+                url: "/api/createappointment",
+                data: {
+                    appointmentTime: selectedDate,
+                    message: $("#message").val(),
+                    CustomerId: customerId,
+                    EmployeeId: $("#employee").val()
+                }
+            })
+            .done(function(res) {
+                sendIt();
+                console.log(res);
+            });
     });
 
 
@@ -123,35 +121,30 @@ $(document).ready(function() {
     }
 
     function format_time(date_obj) { // outputs date in format "4:00pm"
-    var hour = date_obj.getHours();
-    var minute = date_obj.getMinutes();
-    var amPM = (hour > 11) ? "pm" : "am";
-    if (hour > 12) {
-        hour -= 12;
-    } else if (hour == 0) {
-        hour = "12";
+        var hour = date_obj.getHours();
+        var minute = date_obj.getMinutes();
+        var amPM = (hour > 11) ? "pm" : "am";
+        if (hour > 12) {
+            hour -= 12;
+        } else if (hour == 0) {
+            hour = "12";
+        }
+        if (minute < 10) {
+            minute = "0" + minute;
+        }
+        return hour + ":" + minute + amPM;
     }
-    if (minute < 10) {
-        minute = "0" + minute;
+
+    function getServices() {
+        $.get("api/allappointments", function(res) {
+            appointments = res.appointments;
+            employees = res.employeeRoles;
+        });
     }
-    return hour + ":" + minute + amPM;
-}
 
-function getServices() {
-    $.get("api/allappointments", function(res) {
-        console.log(res);
-        appointments = res.appointments;
-        employees = res.employeeRoles;
-    });
-}
-
-
-function sendIt (email){
-    console.log("the sendIt function was called and the email address is " + email);
-    $.post("/sendIt/" + email, function(req, res) {
-        console.log('the function was called and called an d called');
-    });
-
-
-}
+    function sendIt() {
+        $.post("/sendIt/" + customerId, function(req, res) {
+            window.location.href = '/thank-you';
+        });
+    }
 });

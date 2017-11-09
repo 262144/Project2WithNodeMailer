@@ -24,17 +24,13 @@ $(document).ready(function() {
     } // end of createAccount()
 
     function submitCustomer(customer) {
-        $.post("/api/customers", customer, function() {
-            console.log("a new customer has been submitted.")
+        $.post("/api/customers", customer, function(res) {
+            goToApptPage(res.id);
         });
-        console.log('the preliminary email address is ' + customer.email)
-        goToApptPage(customer.email);
-    }
 
-    function goToApptPage(email) {
-        console.log('Saturday morning the new customers email is ' + email);
-        var url = '/make-appt?' + emailInput.val().trim();
-        console.log('here is the url: ' + url);
+    }
+    function goToApptPage(id) {
+        var url = '/make-appt?' + id;
         apptRedirect(url);
     }
 
