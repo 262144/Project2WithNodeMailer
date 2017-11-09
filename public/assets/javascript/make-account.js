@@ -32,7 +32,7 @@ $(document).ready(function() {
     }
 
     function goToApptPage(email) {
-        console.log('Saturday morning the new customers email is ' + email);
+
         var url = '/make-appt?' + emailInput.val().trim();
         console.log('here is the url: ' + url);
         apptRedirect(url);
