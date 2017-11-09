@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Customer = sequelize.define("Customer", {
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING
   });
@@ -11,7 +11,6 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
   };
-
 
   return Customer;
 };
