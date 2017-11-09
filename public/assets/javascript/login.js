@@ -36,14 +36,23 @@ function checkForCustomer(customer){
 			return;
 		} if(customer.password != data.password){
 			alert('The password or email you entered were incorrect.  Please try again.')
+			return;
 		}
+		goToApptPage(customer.email);
 	});
 }
 
 
+    function goToApptPage(email) {
 
+        var url = '/make-appt?' + emailInput.val().trim();
+        console.log('here is the url: ' + url);
+        apptRedirect(url);
+    }
 
-
+    function apptRedirect(url) {
+        window.location.href = url;
+    }
 
 
 
