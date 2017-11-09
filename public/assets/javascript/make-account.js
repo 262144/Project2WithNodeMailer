@@ -27,7 +27,6 @@ $(document).ready(function() {
         $.post("/api/customers", customer, function(res) {
             goToApptPage(res.id);
         });
-
     }
     function goToApptPage(id) {
         var url = '/make-appt?' + id;
