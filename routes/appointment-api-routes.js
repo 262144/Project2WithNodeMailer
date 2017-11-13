@@ -91,9 +91,6 @@ module.exports = function(app) {
 
 
 
-
-
-
   // PUT route for updating appointments
   app.put("/api/appointments", function(req, res) {
     db.Appointment.update(
